@@ -11,7 +11,7 @@ Base = declarative_base()
 # Crear automáticamente la BD y las tablas si no existen
 def init_db():
     from app.models import models  # Importar modelos para que se registren en Base
-    Base.metadata.create_all(bind=engine)
+    Base.metadata.create_all(bind=engine, checkfirst=True)
 
 def get_db():
     db = SessionLocal()
